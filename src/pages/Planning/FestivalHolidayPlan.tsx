@@ -12,6 +12,8 @@ import CRUDStates from "../../components/CRUDStates";
 import UserInfoTable from "../../components/tables/UserInfoTable";
 const FestivalHolidayPlanPage = () => {
   const [checked, setChecked] = useState(false);
+  const [startDate, setStartDate] = useState<string>(new Date().toDateString());
+  const [endDate, setEndDate] = useState<string>(new Date().toDateString());
   const rosterGroup = [
     "N/A",
     "A",
@@ -109,14 +111,14 @@ const FestivalHolidayPlanPage = () => {
               id="start_date"
               label="Start Date"
               dateFormat="DD-MMM-YYYY"
-              // value={startDate}
+              //value={startDate}
               style={{ margin: 0.5, width: "250px" }}
               onChange={(event) => {
                 // setFormData({
                 //   ...formData,
                 //   increment_issue: event["$d"].toDateString(),
                 // });
-                // setStartDate(event["$d"].toDateString());
+                setStartDate(event["$d"].toDateString());
               }}
             />
           </div>
@@ -125,14 +127,14 @@ const FestivalHolidayPlanPage = () => {
               id="end_date"
               label="End Date"
               dateFormat="DD-MMM-YYYY"
-              // value={startDate}
+              //value={endDate}
               style={{ margin: 0.5, width: "250px" }}
               onChange={(event) => {
                 // setFormData({
                 //   ...formData,
                 //   increment_issue: event["$d"].toDateString(),
                 // });
-                // setStartDate(event["$d"].toDateString());
+                setEndDate(event["$d"].toDateString());
               }}
             />
           </div>
@@ -150,7 +152,7 @@ const FestivalHolidayPlanPage = () => {
             />
           </div>
         </div>
-        <Calendar />
+        <Calendar start={startDate} end={endDate} />
         <div style={{ display: "flex", height: "300px" }}>
           <div
             style={{

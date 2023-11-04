@@ -6,8 +6,12 @@ import { fontSizes } from "../../constants/sizes";
 import useColorScheme from "../../hooks/useColorScheme";
 import { SettingsContext } from "../../context/AppSettings";
 import useYearList from "../../hooks/useYearList";
-interface Props {}
-const Calendar = ({}: Props) => {
+interface Props {
+  start?: string;
+  end?: string;
+}
+
+const Calendar = ({ start, end }: Props) => {
   const { colorscheme } = useColorScheme();
   const { listOfYears, currentYear: currYear } = useYearList();
   console.log("CURR_YEAR: ", currYear);
@@ -29,14 +33,24 @@ const Calendar = ({}: Props) => {
   const [totalYears, setTotalYears] = useState<number[]>(listOfYears);
   const [totalDates, setTotalDates] = useState<string[]>([]);
   const [totalWeekDays, setTotalWeekDays] = useState<any[]>([]);
-  const [startDate, setStartDate] = useState<any>(moment().format("DD"));
-  const [endDate, setEndDate] = useState<any>(moment().format("DD"));
+  const [startDate, setStartDate] = useState<any>();
+  const [endDate, setEndDate] = useState<any>();
   const [currentYear, setCurrentYear] = useState<number>(currYear);
   const [currentMonth, setCurrentMonth] = useState<any>(moment().format("MM"));
   // const [currentWeekDay, setCurrentWeekDay] = useState<any>(
   //   moment().format("ddd")
   // );
   const [currentDate, setCurrentDate] = useState<any>(moment().format("DD"));
+
+  let temp = "Sat Nov 5 2023";
+  console.log("MOMENT: ", moment(temp).format("DD"));
+
+  console.log(`S: ${start} E: ${endDate}, end: ${end}`);
+
+  useEffect(() => {
+    setStartDate(moment(start).format("DD"));
+    setEndDate(moment(end).format("DD"));
+  }, [start, end]);
 
   useEffect(() => {
     // const currentDate = moment();
