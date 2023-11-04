@@ -18,7 +18,7 @@ import {
 interface Props {}
 
 const EmployeeRegisterForm = ({}: Props) => {
-  const [formData, setFormData] = useState<{}>();
+  const [formData, setFormData] = useState<any>({});
   const [employeeStatus, setEmployeeStatus] = useState<boolean>(true);
   const [inactiveDate, setInactiveDate] = useState<any>(dayjs());
   const [birthday, setBirthday] = useState<any>(dayjs());
