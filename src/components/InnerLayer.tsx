@@ -221,10 +221,17 @@ const InnerLayer = ({ children }: Props) => {
                 justifyContent: "space-between",
               }}
             >
-              {children}
-              <footer>
-                <SummaryFooter />
-              </footer>
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  flex: 1,
+                  overflow: "scroll",
+                }}
+              >
+                {children}
+              </div>
+              <SummaryFooter />
             </Container>
           </div>
 
