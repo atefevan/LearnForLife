@@ -5,9 +5,12 @@ import C_Typography from "../atoms/C_Typography";
 import { fontSizes } from "../../constants/sizes";
 import useColorScheme from "../../hooks/useColorScheme";
 import { SettingsContext } from "../../context/AppSettings";
+import useYearList from "../../hooks/useYearList";
 interface Props {}
 const Calendar = ({}: Props) => {
   const { colorscheme } = useColorScheme();
+  const { listOfYears, currentYear: currYear } = useYearList();
+  console.log("CURR_YEAR: ", currYear);
   const { darkMode } = useContext<any>(SettingsContext);
   const totalMonths = [
     "January",
@@ -23,12 +26,12 @@ const Calendar = ({}: Props) => {
     "November",
     "December",
   ];
-  const [totalYears, setTotalYears] = useState<string[]>([]);
+  const [totalYears, setTotalYears] = useState<number[]>(listOfYears);
   const [totalDates, setTotalDates] = useState<string[]>([]);
   const [totalWeekDays, setTotalWeekDays] = useState<any[]>([]);
   const [startDate, setStartDate] = useState<any>(moment().format("DD"));
   const [endDate, setEndDate] = useState<any>(moment().format("DD"));
-  const [currentYear, setCurrentYear] = useState<any>(moment().format("YYYY"));
+  const [currentYear, setCurrentYear] = useState<number>(currYear);
   const [currentMonth, setCurrentMonth] = useState<any>(moment().format("MM"));
   // const [currentWeekDay, setCurrentWeekDay] = useState<any>(
   //   moment().format("ddd")
@@ -36,15 +39,15 @@ const Calendar = ({}: Props) => {
   const [currentDate, setCurrentDate] = useState<any>(moment().format("DD"));
 
   useEffect(() => {
-    const currentDate = moment();
-    const yearsArray = [];
-    for (let i = 0; i < 10; i++) {
-      const nextYear = currentDate.clone().add(i, "years");
-      yearsArray.push(nextYear.format("YYYY"));
-    }
-    setTotalYears(yearsArray);
+    // const currentDate = moment();
+    // const yearsArray = [];
+    // for (let i = 0; i < 10; i++) {
+    //   const nextYear = currentDate.clone().add(i, "years");
+    //   yearsArray.push(nextYear.format("YYYY"));
+    // }
+    setTotalYears(listOfYears);
     setTotalDates(generateDatesForMonth());
-  }, []);
+  }, [listOfYears]);
 
   useEffect(() => {
     setTotalDates(generateDatesForMonth());
@@ -113,12 +116,13 @@ const Calendar = ({}: Props) => {
               backgroundColor: colorscheme.transparent,
             }}
             onChange={(event) => {
-              setCurrentYear(event.target.value);
+              setCurrentYear(event.target.value as unknown as number);
             }}
           >
             {totalYears.map((year) => (
               <option
                 value={year}
+                selected={year === currentYear}
                 style={{
                   textAlign: "center",
                   color: colorscheme.yellow,
