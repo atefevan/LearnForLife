@@ -1,0 +1,22 @@
+.gradient {
+  background-image: linear-gradient(to right bottom, #ff0047, #6e1c58);
+}
+
+body {
+  overflow: hidden;
+}
+
+.datepicker:hover {
+  border-color: #ff0047;
+}
+
+.row-center {
+  display: flex;
+  flex: 1;
+  align-items: center;
+}
+
+.search-bar {
+  outline: none;
+  border: none;
+}

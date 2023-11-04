@@ -1,0 +1,40 @@
+/* .years-row {
+    display: flex;
+    max-height: "100px";
+    overflow-x: scroll;
+    overflow-y: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    cursor: pointer;
+  }
+  .months-row {
+    display: flex;
+    max-height: "100px";
+    width: "70vw";
+    justify-content: space-evenly;
+    cursor: pointer;
+  }
+  .dates-row {
+    display: flex;
+    max-height: "100px";
+    width: "10vw";
+    justify-content: space-evenly;
+    cursor: pointer;
+  }
+  .days-row {
+    display: flex;
+    max-height: "100px";
+    width: "10vw";
+    justify-content: space-evenly;
+    cursor: pointer;
+  }
+  .current-year:hover {
+    background-color: orange;
+  }
+  .current-month:hover {
+    background-color: aquamarine;
+  }
+  
+  body {
+    overflow: hidden;
+  } */
