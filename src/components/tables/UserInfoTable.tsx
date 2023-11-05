@@ -58,8 +58,6 @@ const UserInfoTable = ({
   }, [rows]);
   const [records, setRecords] = useState<any>();
   const [value, setValue] = useState<string>("");
-
-  console.log("FROM COMPONENT: ", records);
   const { colorscheme } = useColorScheme();
   const tableCustomStyles = {
     headCells: {

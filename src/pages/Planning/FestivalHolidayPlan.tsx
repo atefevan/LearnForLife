@@ -10,10 +10,11 @@ import C_Typography from "../../components/atoms/C_Typography";
 import { fontSizes } from "../../constants/sizes";
 import CRUDStates from "../../components/CRUDStates";
 import UserInfoTable from "../../components/tables/UserInfoTable";
+import dayjs from "dayjs";
 const FestivalHolidayPlanPage = () => {
   const [checked, setChecked] = useState(false);
-  const [startDate, setStartDate] = useState<string>(new Date().toDateString());
-  const [endDate, setEndDate] = useState<string>(new Date().toDateString());
+  const [startDate, setStartDate] = useState<any>(dayjs());
+  const [endDate, setEndDate] = useState<any>(dayjs());
   const rosterGroup = [
     "N/A",
     "A",
@@ -82,6 +83,13 @@ const FestivalHolidayPlanPage = () => {
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setChecked(event.target.checked);
   };
+  const handleStartDate = (event: any) => {
+    console.log("WAS HERE FROM CALENDAR ");
+    setStartDate(event["$d"]);
+  };
+  const handleEndDate = (event: any) => {
+    setEndDate(event["$d"]);
+  };
   const [fulldayOtCount, setFullDayOtCount] = useState<boolean>(false);
   const { colorscheme } = useColorScheme();
   return (
@@ -117,14 +125,14 @@ const FestivalHolidayPlanPage = () => {
               id="start_date"
               label="Start Date"
               dateFormat="DD-MMM-YYYY"
-              // value={startDate}
+              value={startDate}
               style={{ margin: 0.5, width: "250px" }}
               onChange={(event) => {
                 // setFormData({
                 //   ...formData,
                 //   increment_issue: event["$d"].toDateString(),
                 // });
-                setStartDate(event["$d"].toDateString());
+                setStartDate(event["$d"]);
               }}
             />
           </div>
@@ -133,14 +141,14 @@ const FestivalHolidayPlanPage = () => {
               id="end_date"
               label="End Date"
               dateFormat="DD-MMM-YYYY"
-              //value={endDate}
+              value={endDate}
               style={{ margin: 0.5, width: "250px" }}
               onChange={(event) => {
                 // setFormData({
                 //   ...formData,
                 //   increment_issue: event["$d"].toDateString(),
                 // });
-                setEndDate(event["$d"].toDateString());
+                setEndDate(event["$d"]);
               }}
             />
           </div>
@@ -158,7 +166,12 @@ const FestivalHolidayPlanPage = () => {
           </div>
         </div>
         <div>
-          <Calendar start={startDate} end={endDate} />
+          <Calendar
+            startDate={startDate}
+            handleStartDate={handleStartDate}
+            endDate={endDate}
+            handleEndDate={handleEndDate}
+          />
           <div style={{ display: "flex", height: "300px" }}>
             <div
               style={{

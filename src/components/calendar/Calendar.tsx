@@ -4,19 +4,26 @@ import "./Calendar.css";
 import useColorScheme from "../../hooks/useColorScheme";
 import { SettingsContext } from "../../context/AppSettings";
 import useYearList from "../../hooks/useYearList";
+import dayjs from "dayjs";
+import C_DatePicker from "../atoms/C_DatePicker";
 interface Props {
-  start?: string;
-  end?: string;
+  // start?: string;
+  // end?: string;
   startDate?: any;
-  setStartDate?: (event: any) => void;
+  handleStartDate?: (event: any) => void;
   endDate?: any;
-  setEndDate?: (event: any) => void;
+  handleEndDate?: (event: any) => void;
 }
 
-const Calendar = ({ start, end }: Props) => {
+const Calendar = ({
+  startDate,
+  endDate,
+  handleStartDate,
+  handleEndDate,
+}: Props) => {
   const { colorscheme } = useColorScheme();
   const { listOfYears, currentYear: currYear } = useYearList();
-  console.log("CURR_YEAR: ", currYear);
+  // console.log("CURR_YEAR: ", currYear);
   const { darkMode } = useContext<any>(SettingsContext);
   const totalMonths = [
     "January",
@@ -35,8 +42,8 @@ const Calendar = ({ start, end }: Props) => {
   const [totalYears, setTotalYears] = useState<number[]>(listOfYears);
   const [totalDates, setTotalDates] = useState<string[]>([]);
   const [totalWeekDays, setTotalWeekDays] = useState<any[]>([]);
-  const [startDate, setStartDate] = useState<any>();
-  const [endDate, setEndDate] = useState<any>();
+  // const [startDate, setStartDate] = useState<any>();
+  // const [endDate, setEndDate] = useState<any>();
   const [currentYear, setCurrentYear] = useState<number>(currYear);
   const [currentMonth, setCurrentMonth] = useState<any>(moment().format("MM"));
   // const [currentWeekDay, setCurrentWeekDay] = useState<any>(
@@ -44,15 +51,13 @@ const Calendar = ({ start, end }: Props) => {
   // );
   const [currentDate, setCurrentDate] = useState<any>(moment().format("DD"));
 
-  let temp = "Sat Nov 5 2023";
-  console.log("MOMENT: ", moment(temp).format("DD"));
+  // let temp = "Sat Nov 5 2023";
+  // console.log("MOMENT: ", moment(temp).format("DD"));
 
-  console.log(`S: ${start} E: ${endDate}, end: ${end}`);
-
-  useEffect(() => {
-    setStartDate(moment(start).format("DD"));
-    setEndDate(moment(end).format("DD"));
-  }, [start, end]);
+  // useEffect(() => {
+  //   setStartDate(moment(start).format("DD"));
+  //   setEndDate(moment(end).format("DD"));
+  // }, [start, end]);
 
   useEffect(() => {
     // const currentDate = moment();
@@ -68,7 +73,7 @@ const Calendar = ({ start, end }: Props) => {
   useEffect(() => {
     setTotalDates(generateDatesForMonth());
     setTotalWeekDays(getMonthWeekdays(currentYear, currentMonth));
-    handleDateRange();
+    // handleDateRange();
   }, [currentMonth, currentYear, currentDate]);
   const generateDatesForMonth = () => {
     const startDate = moment([currentYear, currentMonth - 1]);
@@ -94,16 +99,17 @@ const Calendar = ({ start, end }: Props) => {
 
     return weekdaysArray;
   };
-  const handleDateRange = () => {
-    if (currentDate > endDate) {
-      setEndDate(currentDate);
-    } else if (currentDate < startDate) {
-      setStartDate(currentDate);
-    } else if (currentDate > startDate && currentDate < endDate) {
-      setEndDate(currentDate);
-      setStartDate(currentDate);
-    }
-  };
+  // const handleDateRange = () => {
+  //   if (currentDate > endDate) {
+  //     setEndDate(currentDate);
+  //   } else if (currentDate < startDate) {
+  //     setStartDate(currentDate);
+  //   } else if (currentDate > startDate && currentDate < endDate) {
+  //     setEndDate(currentDate);
+  //     setStartDate(currentDate);
+  //   }
+  // };
+
   return (
     <>
       <div
@@ -115,10 +121,17 @@ const Calendar = ({ start, end }: Props) => {
           // borderRadius: "5px",
         }}
       >
+        <C_DatePicker
+          label="Start Date"
+          value={startDate}
+          dateFormat="DD-MMM-YYYY"
+          onChange={handleStartDate}
+        />
         <div style={{ display: "flex" }}>
           <select
             name="years"
             id="years"
+            key={currYear}
             style={{
               display: "flex",
               alignItems: "center",
