@@ -119,11 +119,12 @@ const UserInfoTable = ({
       style: {
         color: colorscheme.text,
         backgroundColor: "transparent",
-        fontSize: "18px", // Set your desired font size
+        fontSize: "14px", // Set your desired font size
         fontFamily: "Arial",
       },
       pageButtonsStyle: {
-        color: "black",
+        color: "pink",
+        // fontSizes:400,
       },
     },
   };

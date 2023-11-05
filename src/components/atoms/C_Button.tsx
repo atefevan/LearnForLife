@@ -78,7 +78,7 @@ const C_Button = ({
         ref={ref}
         hidden={isHidden}
         sx={{
-          width: width,
+          width: `${width}px`,
           height: height,
           bgcolor: bgColor,
           borderRadius: cornerRadius,

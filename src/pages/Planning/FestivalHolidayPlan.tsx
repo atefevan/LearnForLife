@@ -86,7 +86,14 @@ const FestivalHolidayPlanPage = () => {
   const { colorscheme } = useColorScheme();
   return (
     <InnerLayer>
-      <div>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-evenly",
+          flexDirection: "column",
+          height: "85vh",
+        }}
+      >
         <div style={{ display: "flex", justifyContent: "space-evenly" }}>
           <div style={{ display: "flex", flex: 1, alignItems: "center" }}>
             <C_Select
@@ -99,7 +106,7 @@ const FestivalHolidayPlanPage = () => {
                 height: "55px",
                 width: "250px",
                 borderRadius: 2,
-                marginLeft:"15px",
+                marginLeft: "15px",
               }}
               items={[""]}
               // onChange={handleFormDataInput}
@@ -110,7 +117,7 @@ const FestivalHolidayPlanPage = () => {
               id="start_date"
               label="Start Date"
               dateFormat="DD-MMM-YYYY"
-              //value={startDate}
+              // value={startDate}
               style={{ margin: 0.5, width: "250px" }}
               onChange={(event) => {
                 // setFormData({
@@ -150,238 +157,240 @@ const FestivalHolidayPlanPage = () => {
             />
           </div>
         </div>
-        <Calendar start={startDate} end={endDate} />
-        <div style={{ display: "flex", height: "300px" }}>
-          <div
-            style={{
-              display: "flex",
-              flex: 1,
-              backgroundColor: "green",
-              flexDirection: "column",
-            }}
-          >
+        <div>
+          <Calendar start={startDate} end={endDate} />
+          <div style={{ display: "flex", height: "300px" }}>
             <div
               style={{
                 display: "flex",
-                height: "25px",
-                backgroundColor: "gray",
-                alignItems: "center",
-                margin: 1,
+                flex: 1,
+                backgroundColor: "green",
+                flexDirection: "column",
               }}
             >
-              <C_CheckBox
-                isChecked={checked}
-                onChange={handleChange}
-                customSize={24}
-              />
-              <C_Typography
-                text={`Roster Grp(${0}) ${0}`}
-                custom_color="black"
-                fontSize={fontSizes.xs}
-              />
+              <div
+                style={{
+                  display: "flex",
+                  height: "25px",
+                  backgroundColor: "gray",
+                  alignItems: "center",
+                  margin: 1,
+                }}
+              >
+                <C_CheckBox
+                  isChecked={checked}
+                  onChange={handleChange}
+                  customSize={24}
+                />
+                <C_Typography
+                  text={`Roster Grp(${0}) ${0}`}
+                  custom_color="black"
+                  fontSize={fontSizes.xs}
+                />
+              </div>
+              <div
+                style={{
+                  display: "flex",
+                  backgroundColor: "#E0F4FF",
+                  flex: 1,
+                  flexDirection: "column",
+                  overflowX: "hidden",
+                  overflowY: "auto",
+                  overflow: "scroll",
+                }}
+              >
+                {rosterGroup.map((roster) => (
+                  <div style={{}}>
+                    <div style={{ display: "flex" }}>
+                      <C_CheckBox
+                        isChecked={checked}
+                        onChange={handleChange}
+                        customSize={24}
+                        style={{ marginRight: 1 }}
+                      />
+                      <C_Typography text={roster} fontSize={17} />
+                    </div>
+                    <div
+                      style={{
+                        backgroundColor: "gray",
+                        display: "flex",
+                        // flex: 1,
+                        // marginLeft: 1,
+                        // marginRight: 1,
+                        width: "150px",
+                        height: "1px",
+                        alignSelf: "center",
+                      }}
+                    />
+                  </div>
+                ))}
+              </div>
             </div>
             <div
               style={{
                 display: "flex",
-                backgroundColor: "#E0F4FF",
                 flex: 1,
+                backgroundColor: "orange",
                 flexDirection: "column",
                 overflowX: "hidden",
                 overflowY: "auto",
                 overflow: "scroll",
               }}
             >
-              {rosterGroup.map((roster) => (
-                <div style={{}}>
-                  <div style={{ display: "flex" }}>
-                    <C_CheckBox
-                      isChecked={checked}
-                      onChange={handleChange}
-                      customSize={24}
-                      style={{ marginRight: 1 }}
-                    />
-                    <C_Typography text={roster} fontSize={17} />
-                  </div>
-                  <div
-                    style={{
-                      backgroundColor: "gray",
-                      display: "flex",
-                      // flex: 1,
-                      // marginLeft: 1,
-                      // marginRight: 1,
-                      width: "150px",
-                      height: "1px",
-                      alignSelf: "center",
-                    }}
-                  />
-                </div>
-              ))}
+              <div
+                style={{
+                  display: "flex",
+                  height: "25px",
+                  backgroundColor: "gray",
+                  alignItems: "center",
+                  margin: 1,
+                }}
+              >
+                <C_CheckBox
+                  isChecked={checked}
+                  onChange={handleChange}
+                  customSize={24}
+                />
+                <C_Typography
+                  text={`Religion(${0}) ${1}`}
+                  custom_color="black"
+                  fontSize={fontSizes.xs}
+                />
+              </div>
+              Religion
             </div>
-          </div>
-          <div
-            style={{
-              display: "flex",
-              flex: 1,
-              backgroundColor: "orange",
-              flexDirection: "column",
-              overflowX: "hidden",
-              overflowY: "auto",
-              overflow: "scroll",
-            }}
-          >
             <div
               style={{
                 display: "flex",
-                height: "25px",
-                backgroundColor: "gray",
-                alignItems: "center",
-                margin: 1,
+                flex: 1,
+                backgroundColor: "pink",
+                flexDirection: "column",
+                overflowX: "hidden",
+                overflowY: "auto",
+                overflow: "scroll",
               }}
             >
-              <C_CheckBox
-                isChecked={checked}
-                onChange={handleChange}
-                customSize={24}
-              />
-              <C_Typography
-                text={`Religion(${0}) ${1}`}
-                custom_color="black"
-                fontSize={fontSizes.xs}
-              />
+              <div
+                style={{
+                  display: "flex",
+                  height: "25px",
+                  backgroundColor: "gray",
+                  alignItems: "center",
+                  margin: 1,
+                }}
+              >
+                <C_CheckBox
+                  isChecked={checked}
+                  onChange={handleChange}
+                  customSize={24}
+                />
+                <C_Typography
+                  text={`Staff. Cat.(${0}) ${0}`}
+                  custom_color="black"
+                  fontSize={fontSizes.xs}
+                />
+              </div>
+              Staff Category
             </div>
-            Religion
-          </div>
-          <div
-            style={{
-              display: "flex",
-              flex: 1,
-              backgroundColor: "pink",
-              flexDirection: "column",
-              overflowX: "hidden",
-              overflowY: "auto",
-              overflow: "scroll",
-            }}
-          >
             <div
               style={{
                 display: "flex",
-                height: "25px",
-                backgroundColor: "gray",
-                alignItems: "center",
-                margin: 1,
+                flex: 2,
+                backgroundColor: "green",
+                flexDirection: "column",
+                overflowX: "hidden",
+                overflowY: "auto",
+                overflow: "scroll",
               }}
             >
-              <C_CheckBox
-                isChecked={checked}
-                onChange={handleChange}
-                customSize={24}
-              />
-              <C_Typography
-                text={`Staff. Cat.(${0}) ${0}`}
-                custom_color="black"
-                fontSize={fontSizes.xs}
-              />
+              <div
+                style={{
+                  display: "flex",
+                  height: "25px",
+                  backgroundColor: "gray",
+                  alignItems: "center",
+                  margin: 1,
+                }}
+              >
+                <C_CheckBox
+                  isChecked={checked}
+                  onChange={handleChange}
+                  customSize={24}
+                />
+                <C_Typography
+                  text={`Department(${0}) ${0}`}
+                  custom_color="black"
+                  fontSize={fontSizes.xs}
+                />
+              </div>
+              Department
             </div>
-            Staff Category
-          </div>
-          <div
-            style={{
-              display: "flex",
-              flex: 2,
-              backgroundColor: "green",
-              flexDirection: "column",
-              overflowX: "hidden",
-              overflowY: "auto",
-              overflow: "scroll",
-            }}
-          >
             <div
               style={{
                 display: "flex",
-                height: "25px",
-                backgroundColor: "gray",
-                alignItems: "center",
-                margin: 1,
+                flex: 2,
+                backgroundColor: "violet",
+                flexDirection: "column",
+                overflowX: "hidden",
+                overflowY: "auto",
+                overflow: "scroll",
               }}
             >
-              <C_CheckBox
-                isChecked={checked}
-                onChange={handleChange}
-                customSize={24}
-              />
-              <C_Typography
-                text={`Department(${0}) ${0}`}
-                custom_color="black"
-                fontSize={fontSizes.xs}
-              />
+              <div
+                style={{
+                  display: "flex",
+                  height: "25px",
+                  backgroundColor: "gray",
+                  alignItems: "center",
+                  margin: 1,
+                }}
+              >
+                <C_CheckBox
+                  isChecked={checked}
+                  onChange={handleChange}
+                  customSize={24}
+                />
+                <C_Typography
+                  text={`Designation(${0}) ${0}`}
+                  custom_color="black"
+                  fontSize={fontSizes.xs}
+                />
+              </div>
+              Designation
             </div>
-            Department
-          </div>
-          <div
-            style={{
-              display: "flex",
-              flex: 2,
-              backgroundColor: "violet",
-              flexDirection: "column",
-              overflowX: "hidden",
-              overflowY: "auto",
-              overflow: "scroll",
-            }}
-          >
             <div
               style={{
                 display: "flex",
-                height: "25px",
-                backgroundColor: "gray",
-                alignItems: "center",
-                margin: 1,
+                flex: 3,
+                backgroundColor: "red",
+                flexDirection: "column",
+                overflowX: "hidden",
+                overflowY: "auto",
+                overflow: "scroll",
               }}
             >
-              <C_CheckBox
-                isChecked={checked}
-                onChange={handleChange}
-                customSize={24}
-              />
-              <C_Typography
-                text={`Designation(${0}) ${0}`}
-                custom_color="black"
-                fontSize={fontSizes.xs}
-              />
+              <div
+                style={{
+                  display: "flex",
+                  height: "25px",
+                  backgroundColor: "gray",
+                  alignItems: "center",
+                  margin: 1,
+                }}
+              >
+                <C_CheckBox
+                  isChecked={checked}
+                  onChange={handleChange}
+                  customSize={24}
+                />
+                <C_Typography
+                  text={`Employee(${0}) ${0}`}
+                  custom_color="black"
+                  fontSize={fontSizes.xs}
+                />
+              </div>
+              Employee
             </div>
-            Designation
-          </div>
-          <div
-            style={{
-              display: "flex",
-              flex: 3,
-              backgroundColor: "red",
-              flexDirection: "column",
-              overflowX: "hidden",
-              overflowY: "auto",
-              overflow: "scroll",
-            }}
-          >
-            <div
-              style={{
-                display: "flex",
-                height: "25px",
-                backgroundColor: "gray",
-                alignItems: "center",
-                margin: 1,
-              }}
-            >
-              <C_CheckBox
-                isChecked={checked}
-                onChange={handleChange}
-                customSize={24}
-              />
-              <C_Typography
-                text={`Employee(${0}) ${0}`}
-                custom_color="black"
-                fontSize={fontSizes.xs}
-              />
-            </div>
-            Employee
           </div>
         </div>
         <div style={{ marginTop: "10px" }}>

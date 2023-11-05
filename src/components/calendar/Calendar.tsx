@@ -1,14 +1,16 @@
 import { useState, useEffect, useContext } from "react";
 import moment from "moment";
 import "./Calendar.css";
-import C_Typography from "../atoms/C_Typography";
-import { fontSizes } from "../../constants/sizes";
 import useColorScheme from "../../hooks/useColorScheme";
 import { SettingsContext } from "../../context/AppSettings";
 import useYearList from "../../hooks/useYearList";
 interface Props {
   start?: string;
   end?: string;
+  startDate?: any;
+  setStartDate?: (event: any) => void;
+  endDate?: any;
+  setEndDate?: (event: any) => void;
 }
 
 const Calendar = ({ start, end }: Props) => {
@@ -127,7 +129,7 @@ const Calendar = ({ start, end }: Props) => {
               border: "1px solid black",
               color: colorscheme.text,
               backgroundColor: colorscheme.transparent,
-              width:"5vw"
+              width: "5vw",
             }}
             onChange={(event) => {
               setCurrentYear(event.target.value as unknown as number);
