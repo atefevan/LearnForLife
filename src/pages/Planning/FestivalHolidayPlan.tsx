@@ -96,11 +96,10 @@ const FestivalHolidayPlanPage = () => {
               label="Festival Holiday"
               defaultValue={""}
               style={{
-                paddingBottom: 2,
-                padding: 1,
                 height: "55px",
                 width: "250px",
-                borderRadius: 4,
+                borderRadius: 2,
+                marginLeft:"15px",
               }}
               items={[""]}
               // onChange={handleFormDataInput}
@@ -138,12 +137,11 @@ const FestivalHolidayPlanPage = () => {
               }}
             />
           </div>
-          <div style={{ display: "flex", flex: 1, marginBottom: 10 }}>
+          <div style={{ display: "flex", flex: 0.5, marginBottom: 10 }}>
             <C_Switch
               id="fullday_ot_count"
               name="fullday_ot_count"
               label="Fullday OT Count"
-              style={{ marginLeft: 1 }}
               labelAlign="start"
               color={colorscheme.success}
               onChange={() => {

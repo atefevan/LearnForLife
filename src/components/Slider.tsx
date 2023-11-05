@@ -31,7 +31,7 @@ const Slider: React.FC<Props> = ({ onClick, selected }) => {
         }}
       >
         {ITEMS.map((item: any) => (
-          <C_Item label={item} onClick={onClick} focused={selected} />
+          <C_Item label={item} onClick={onClick} focused={selected}  />
         ))}
       </div>
     </div>

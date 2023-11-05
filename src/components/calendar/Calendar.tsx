@@ -109,8 +109,8 @@ const Calendar = ({ start, end }: Props) => {
           display: "flex",
           justifyContent: "center",
           flexDirection: "column",
-          borderWidth: 1,
-          borderRadius: "5px",
+          // borderWidth: 1,
+          // borderRadius: "5px",
         }}
       >
         <div style={{ display: "flex" }}>
@@ -119,7 +119,6 @@ const Calendar = ({ start, end }: Props) => {
             id="years"
             style={{
               display: "flex",
-              width: "150px",
               alignItems: "center",
               borderTopLeftRadius: 10,
               borderTopRightRadius: 10,
@@ -128,6 +127,7 @@ const Calendar = ({ start, end }: Props) => {
               border: "1px solid black",
               color: colorscheme.text,
               backgroundColor: colorscheme.transparent,
+              width:"5vw"
             }}
             onChange={(event) => {
               setCurrentYear(event.target.value as unknown as number);

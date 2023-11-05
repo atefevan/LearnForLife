@@ -4,6 +4,7 @@ import C_Card from "./C_Card";
 import C_Typography from "./C_Typography";
 import { SettingsContext } from "../../context/AppSettings";
 import CheckIcon from "@mui/icons-material/Check";
+import { SxProps, Theme } from "@mui/material";
 
 interface Props {
   label?: string;
@@ -15,6 +16,7 @@ interface Props {
   minWidth?: string | number;
   maxWidth?: string | number;
   maxHeight?: string | number;
+  style?: SxProps<Theme>;
   onClick?: () => void;
 }
 const C_Item = ({
