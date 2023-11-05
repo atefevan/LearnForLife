@@ -21,7 +21,7 @@ const EmployeeRegisterForm = ({}: Props) => {
   const [formData, setFormData] = useState<any>({});
   const [employeeStatus, setEmployeeStatus] = useState<boolean>(true);
   const [inactiveDate, setInactiveDate] = useState<any>(dayjs());
-  const [birthday, setBirthday] = useState<any>("");
+  const [birthday, setBirthday] = useState<any>(dayjs());
   const [joiningDate, setJoiningDate] = useState<any>(dayjs());
   const [idIssueDate, setIdIssueDate] = useState<any>(dayjs());
   const [employeeAge, setEmployeeAge] = useState<string>("");
@@ -41,7 +41,7 @@ const EmployeeRegisterForm = ({}: Props) => {
       ...formData,
       employee_status: employeeStatus,
       inactive_date: employeeStatus ? null : new Date().toString(),
-      birth_day: birthday["$d"]?.toString(),
+      birth_day: birthday["$d"].toString(),
       joining_date: joiningDate["$d"].toString(),
       id_issue_date: idIssueDate["$d"].toString(),
     });
@@ -269,25 +269,11 @@ const EmployeeRegisterForm = ({}: Props) => {
             }}
           >
             <C_DatePicker
-              id="start_date"
-              label="Start Date"
-              dateFormat="DD-MMM-YYYY"
-              //value={startDate}
-              style={{ margin: 0.5, width: "250px" }}
-              onChange={(event) => {
-                // setFormData({
-                //   ...formData,
-                //   increment_issue: event["$d"].toDateString(),
-                // });
-                //setStartDate(event["$d"].toDateString());
-              }}
-            />
-            {/* <C_DatePicker
               // disabled={employeeStatus}
               id="birth_day"
               label="Date of Birth"
               dateFormat="MMM DD, YYYY"
-              value={""}
+              value={birthday}
               style={{ paddingBottom: 2, width: "310px" }}
               onChange={(event) => {
                 setBirthday(event["$d"]);
@@ -296,7 +282,7 @@ const EmployeeRegisterForm = ({}: Props) => {
                   birth_day: event["$d"].toString(),
                 });
               }}
-            /> */}
+            />
             {/* auto generated age eg. 17 years 9 months*/}
             <C_TextField
               id="employee_age"
