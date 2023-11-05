@@ -162,8 +162,8 @@ const Calendar = ({ start, end }: Props) => {
                   // borderColor: "black",
                   borderWidth: "1",
                   border: "1px solid black",
-                  paddingLeft: 35,
-                  paddingRight: 35,
+                  paddingLeft: 38,
+                  paddingRight: 38,
                   paddingTop: 5,
                   paddingBottom: 5,
                   marginTop:
@@ -190,7 +190,7 @@ const Calendar = ({ start, end }: Props) => {
             ))}
           </div>
         </div>
-        <div style={{ width: "93vw" }}>
+        <div style={{ width: "93.7vw" }}>
           <div
             className="weekdays-row"
             style={{
