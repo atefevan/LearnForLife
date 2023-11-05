@@ -55,7 +55,7 @@ const TrainingInformationForm = ({}: Props) => {
           }}
           rows={trainingInformationRow}
           columns={TrainingInformationColumn}
-          tableTitle={"Skills Column"}
+          label={"Training Informations"}
           emptyRecordsTitle={"No training Found !"}
         />
       </div>

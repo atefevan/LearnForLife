@@ -13,7 +13,7 @@ import {
 
 interface Props {}
 const ReferenceAndOthersForm = ({}: Props) => {
-  const [formData, setFormData] = useState<{}>();
+  const [formData, setFormData] = useState<any>();
 
   const handleFormDataInput = (e: any) => {
     e.preventDefault();
@@ -35,6 +35,7 @@ const ReferenceAndOthersForm = ({}: Props) => {
           style={{
             display: "flex",
             justifyContent: "center",
+            height: "67vh",
           }}
         >
           <div
@@ -42,6 +43,7 @@ const ReferenceAndOthersForm = ({}: Props) => {
               display: "flex",
               flexDirection: "column",
               width: "250px",
+              justifyContent:"space-evenly",
               //   backgroundColor:colorscheme.brown500,
             }}
           >
@@ -51,7 +53,6 @@ const ReferenceAndOthersForm = ({}: Props) => {
               key="marital_status"
               label="Marital Status"
               defaultValue={"Married"}
-              style={{ paddingBottom: 2 }}
               items={["Married", "Unmarried", "Divorced", "Widow"]}
               onChange={handleFormDataInput}
             />
@@ -60,7 +61,6 @@ const ReferenceAndOthersForm = ({}: Props) => {
               name="spouse_id_card_no"
               label="Spouse ID Card No."
               placeHolder="Card No..."
-              style={{ paddingBottom: 2 }}
               validator={digitValidator(formData?.spouse_id_card_no)}
               fieldOnChange={handleFormDataInput}
             />
@@ -69,7 +69,6 @@ const ReferenceAndOthersForm = ({}: Props) => {
               name="spouse_name"
               label="Spouse Name"
               placeHolder="Spouse Name..."
-              style={{ paddingBottom: 2 }}
               fieldOnChange={handleFormDataInput}
             />
             <C_TextField
@@ -77,7 +76,6 @@ const ReferenceAndOthersForm = ({}: Props) => {
               name="husband_or_wife_name_bangla"
               label="স্বামী / স্ত্রী নাম"
               placeHolder="নাম..."
-              style={{ paddingBottom: 2 }}
               fieldOnChange={handleFormDataInput}
             />
             <C_Select
@@ -86,7 +84,6 @@ const ReferenceAndOthersForm = ({}: Props) => {
               key="spouse_rel"
               label="Spouse Rel."
               defaultValue={""}
-              style={{ paddingBottom: 2 }}
               items={["Husband", "Wife"]}
               onChange={handleFormDataInput}
             />
@@ -96,7 +93,6 @@ const ReferenceAndOthersForm = ({}: Props) => {
               key="spouse_profession"
               label="Spouse Prof."
               defaultValue={"N/A"}
-              style={{ paddingBottom: 2 }}
               items={["N/A"]}
               onChange={handleFormDataInput}
             />
@@ -105,6 +101,7 @@ const ReferenceAndOthersForm = ({}: Props) => {
                 display: "flex",
                 justifyContent: "space-around",
                 alignItems: "center",
+                
               }}
             >
               <C_TextField
@@ -113,7 +110,6 @@ const ReferenceAndOthersForm = ({}: Props) => {
                 label="No. of Child"
                 defaultValue={0}
                 placeHolder="No. of child"
-                style={{ paddingBottom: 2 }}
                 validator={digitValidator(formData?.no_of_child)}
                 fieldOnChange={handleFormDataInput}
               />
@@ -127,7 +123,6 @@ const ReferenceAndOthersForm = ({}: Props) => {
               type="text"
               label="Child Description"
               placeHolder="Description"
-              style={{ paddingBottom: 2 }}
               fieldOnChange={handleFormDataInput}
             />
           </div>
@@ -136,6 +131,7 @@ const ReferenceAndOthersForm = ({}: Props) => {
               display: "flex",
               flexDirection: "column",
               width: "250px",
+              justifyContent:"space-evenly",
               //   backgroundColor:colorscheme.brown500,
               marginLeft: 10,
             }}
@@ -146,7 +142,6 @@ const ReferenceAndOthersForm = ({}: Props) => {
               type="text"
               label="Service Book"
               placeHolder="services..."
-              style={{ paddingBottom: 2 }}
               fieldOnChange={handleFormDataInput}
             />
             <C_TextField
@@ -155,7 +150,6 @@ const ReferenceAndOthersForm = ({}: Props) => {
               type="text"
               label="Insurance Info "
               placeHolder="info..."
-              style={{ paddingBottom: 2 }}
               fieldOnChange={handleFormDataInput}
             />
             <C_TextField
@@ -163,7 +157,6 @@ const ReferenceAndOthersForm = ({}: Props) => {
               name="referer_english"
               label="Referer"
               placeHolder="referer..."
-              style={{ paddingBottom: 2 }}
               fieldOnChange={handleFormDataInput}
             />
             <C_TextField
@@ -171,7 +164,6 @@ const ReferenceAndOthersForm = ({}: Props) => {
               name="referer_bangla"
               label="রেফারার"
               placeHolder="রেফারার..."
-              style={{ paddingBottom: 2 }}
               fieldOnChange={handleFormDataInput}
             />
             <C_TextField
@@ -179,7 +171,6 @@ const ReferenceAndOthersForm = ({}: Props) => {
               name="referer_phone"
               label="Referer Phone"
               placeHolder="Phone No..."
-              style={{ paddingBottom: 2 }}
               validator={phoneNumberValidator(formData?.referer_phone)}
               fieldOnChange={handleFormDataInput}
             />
@@ -188,7 +179,6 @@ const ReferenceAndOthersForm = ({}: Props) => {
               name="referer_address"
               label="Referer Address"
               placeHolder="Address..."
-              style={{ paddingBottom: 2 }}
               fieldOnChange={handleFormDataInput}
             />
             <C_DatePicker
@@ -203,7 +193,7 @@ const ReferenceAndOthersForm = ({}: Props) => {
                 // console.log(dayjs(event["$d"]).format("MMM DD, YYYY"));
                 setFormData({
                   ...formData,
-                  entry_date: event["$d"].toString(),
+                  entry_date: event["$d"].toDateString(),
                 });
               }}
             />
@@ -213,7 +203,6 @@ const ReferenceAndOthersForm = ({}: Props) => {
               label="Working Hour"
               defaultValue={0}
               placeHolder="Hours..."
-              style={{ paddingBottom: 2 }}
               validator={digitValidator(formData?.working_hour)}
               fieldOnChange={handleFormDataInput}
             />
@@ -223,8 +212,11 @@ const ReferenceAndOthersForm = ({}: Props) => {
               display: "flex",
               flexDirection: "column",
               width: "250px",
+              height:"55vh",
+              justifyContent:"space-evenly",
               //   backgroundColor:colorscheme.brown500,
               marginLeft: 10,
+              marginTop:4,
             }}
           >
             <C_ImageTextField
@@ -235,7 +227,6 @@ const ReferenceAndOthersForm = ({}: Props) => {
               prefixImage={
                 "https://img.etimg.com/thumb/msid-98416802,width-300,height-225,imgsize-5374,,resizemode-75/andrew-tate-health-update-andrew-tates-manager-claims-he-has-lung-cancer-trolled-on-social-media.jpg"
               }
-              style={{ paddingBottom: 2 }}
             />
             <C_ImageTextField
               id="employee_signature"
@@ -245,7 +236,6 @@ const ReferenceAndOthersForm = ({}: Props) => {
               prefixImage={
                 "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjzC2JyZDZ_RaWf0qp11K0lcvB6b6kYNMoqtZAQ9hiPZ4cTIOB"
               }
-              style={{ paddingBottom: 2 }}
             />
             <C_TextField
               id="nominee_name_english"
@@ -253,7 +243,6 @@ const ReferenceAndOthersForm = ({}: Props) => {
               label="Nominee"
               defaultValue={0}
               placeHolder="Nominee..."
-              style={{ paddingBottom: 2 }}
               fieldOnChange={handleFormDataInput}
             />
             <C_TextField
@@ -262,7 +251,6 @@ const ReferenceAndOthersForm = ({}: Props) => {
               label="মনোনীত ব্যক্তি"
               defaultValue={0}
               placeHolder="মনোনীত ব্যক্তি..."
-              style={{ paddingBottom: 2 }}
               fieldOnChange={handleFormDataInput}
             />
             <C_TextField
@@ -271,7 +259,6 @@ const ReferenceAndOthersForm = ({}: Props) => {
               label="Nomin. Relation"
               defaultValue={0}
               placeHolder="Relation..."
-              style={{ paddingBottom: 2 }}
               fieldOnChange={handleFormDataInput}
             />
             <C_TextField
@@ -280,7 +267,6 @@ const ReferenceAndOthersForm = ({}: Props) => {
               label="Nominee Phone"
               defaultValue={0}
               placeHolder="Phone Number..."
-              style={{ paddingBottom: 2 }}
               validator={phoneNumberValidator(formData?.nominee_phone_no)}
               fieldOnChange={handleFormDataInput}
             />
@@ -290,7 +276,6 @@ const ReferenceAndOthersForm = ({}: Props) => {
               label="Nominee Address"
               defaultValue={0}
               placeHolder="Address..."
-              style={{ paddingBottom: 2 }}
               fieldOnChange={handleFormDataInput}
             />
           </div>
@@ -299,7 +284,8 @@ const ReferenceAndOthersForm = ({}: Props) => {
               display: "flex",
               flexDirection: "column",
               width: "250px",
-              //   backgroundColor:colorscheme.brown500,
+              height:"56vh",
+              justifyContent:"space-evenly",
               marginLeft: 10,
             }}
           >
@@ -309,7 +295,6 @@ const ReferenceAndOthersForm = ({}: Props) => {
               label="মনোনীত ব্যক্তির ঠিকানা"
               defaultValue={0}
               placeHolder="ঠিকানা..."
-              style={{ paddingBottom: 2 }}
               fieldOnChange={handleFormDataInput}
             />
             <C_TextField
@@ -318,19 +303,8 @@ const ReferenceAndOthersForm = ({}: Props) => {
               label="Old Card No."
               defaultValue={0}
               placeHolder="Old Card no..."
-              style={{ paddingBottom: 2 }}
               fieldOnChange={handleFormDataInput}
             />
-            {/* <C_TextField
-              id="salary_based_on"
-              name="salary_based_on"
-              type="text"
-              label="Salary Based On."
-              defaultValue={0}
-              placeHolder="Based on..."
-              style={{ paddingBottom: 2 }}
-              fieldOnChange={handleFormDataInput}
-            /> */}
             <C_Select
               id="salary_based_on"
               name="salary_based_on"
@@ -338,7 +312,6 @@ const ReferenceAndOthersForm = ({}: Props) => {
               label="Salary Based On"
               isRequired={true}
               defaultValue={"Attendance Based"}
-              style={{ paddingBottom: 2 }}
               items={["N/A", "Attendance Based", "Production Based"]}
               onChange={handleFormDataInput}
             />
@@ -348,7 +321,6 @@ const ReferenceAndOthersForm = ({}: Props) => {
               label="Joining Salary"
               defaultValue={0}
               placeHolder="Joining Salary..."
-              style={{ paddingBottom: 2 }}
               validator={digitValidator(formData?.joining_salary)}
               fieldOnChange={handleFormDataInput}
             />
@@ -358,7 +330,6 @@ const ReferenceAndOthersForm = ({}: Props) => {
               key="payment_terms"
               label="Payment Terms"
               defaultValue={"N/A"}
-              style={{ paddingBottom: 2 }}
               items={["N/A"]}
               onChange={handleFormDataInput}
             />
@@ -367,7 +338,6 @@ const ReferenceAndOthersForm = ({}: Props) => {
               name="priority_percent"
               label="Priority Percent"
               placeHolder="Priority on Percentage..."
-              style={{ paddingBottom: 2 }}
               suffixIcon={<PercentIcon />}
               fieldOnChange={handleFormDataInput}
             />
@@ -376,7 +346,6 @@ const ReferenceAndOthersForm = ({}: Props) => {
               name="payment_priority"
               label="Payment Priority"
               placeHolder="On Percentage %..."
-              style={{ paddingBottom: 2 }}
               validator={digitValidator(formData?.payment_priority)}
               fieldOnChange={handleFormDataInput}
             />

@@ -6,11 +6,13 @@ import C_Select from "../../../atoms/C_Select";
 import C_Button from "../../../atoms/C_Button";
 import UserInfoTable from "../../../tables/UserInfoTable";
 import { digitValidator } from "../../../../utils/validator";
+import useColorScheme from "../../../../hooks/useColorScheme";
 
 type FormData = object | {};
 interface Props {}
 const EducationalQualificationForm = ({}: Props) => {
-  const [formData, setFormData] = useState<FormData>({});
+  const { colorscheme } = useColorScheme();
+  const [formData, setFormData] = useState<any>({});
   const [educationalQualificationRow, setEducationalQualificationRow] =
     useState<FormData[]>([]);
 
@@ -77,7 +79,9 @@ const EducationalQualificationForm = ({}: Props) => {
           <div
             style={{
               display: "flex",
-              //   backgroundColor:colorscheme.brown500,
+              width: "82vw",
+              // backgroundColor: colorscheme.brown500,
+              justifyContent: "space-evenly",
             }}
           >
             <C_Select
@@ -86,7 +90,7 @@ const EducationalQualificationForm = ({}: Props) => {
               key="course_or_certificate_name"
               label="Course/Certificate Name"
               defaultValue={""}
-              style={{ margin: 0.5, width: "250px" }}
+              style={{ width: "250px" }}
               items={["SSC", "HSC", "BSC", "MSC"]}
               onChange={handleFormDataInput}
             />
@@ -95,7 +99,6 @@ const EducationalQualificationForm = ({}: Props) => {
               name="institute"
               label="Institute"
               placeHolder="Institute..."
-              style={{ margin: 0.5 }}
               fieldOnChange={handleFormDataInput}
             />
             <C_TextField
@@ -103,7 +106,6 @@ const EducationalQualificationForm = ({}: Props) => {
               name="board"
               label="Board"
               placeHolder="Board..."
-              style={{ margin: 0.5 }}
               fieldOnChange={handleFormDataInput}
             />
             <C_TextField
@@ -111,7 +113,6 @@ const EducationalQualificationForm = ({}: Props) => {
               name="passing_year"
               label="Passing Year"
               placeHolder="Year..."
-              style={{ margin: 0.5 }}
               validator={digitValidator(formData?.passing_year)}
               fieldOnChange={handleFormDataInput}
             />
@@ -120,7 +121,6 @@ const EducationalQualificationForm = ({}: Props) => {
               name="major"
               label="Major"
               placeHolder="major..."
-              style={{ margin: 0.5 }}
               fieldOnChange={handleFormDataInput}
             />
             <C_TextField
@@ -128,7 +128,6 @@ const EducationalQualificationForm = ({}: Props) => {
               name="gpa_or_cgpa"
               label="GPA/CGPA"
               placeHolder="GPA or CGPA..."
-              style={{ margin: 0.5 }}
               fieldOnChange={handleFormDataInput}
             />
           </div>
@@ -153,7 +152,7 @@ const EducationalQualificationForm = ({}: Props) => {
           }}
           rows={educationalQualificationRow}
           columns={educationalQualificationColumn}
-          tableTitle={"Educational Qualification"}
+          label={"Educational Qualification"}
         />
       </div>
     </>

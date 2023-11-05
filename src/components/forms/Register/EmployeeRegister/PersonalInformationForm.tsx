@@ -7,7 +7,7 @@ import { digitValidator } from "../../../../utils/validator";
 
 interface Props {}
 const PersonalInformationForm = ({}: Props) => {
-  const [formData, setFormData] = useState<{}>();
+  const [formData, setFormData] = useState<any>();
 
   const handleFormDataInput = (e: any) => {
     e.preventDefault();
@@ -29,6 +29,7 @@ const PersonalInformationForm = ({}: Props) => {
           style={{
             display: "flex",
             justifyContent: "center",
+            height:"60vh"
           }}
         >
           <div
@@ -36,6 +37,7 @@ const PersonalInformationForm = ({}: Props) => {
               display: "flex",
               flexDirection: "column",
               width: "250px",
+              justifyContent:"space-evenly",
               //   backgroundColor:colorscheme.brown500,
             }}
           >
@@ -45,7 +47,6 @@ const PersonalInformationForm = ({}: Props) => {
               type="text"
               label="Father Name"
               placeHolder="Name..."
-              style={{ paddingBottom: 2 }}
               fieldOnChange={handleFormDataInput}
             />
             <C_TextField
@@ -54,7 +55,6 @@ const PersonalInformationForm = ({}: Props) => {
               type="text"
               label="পিতার নাম"
               placeHolder="নাম..."
-              style={{ paddingBottom: 2 }}
               fieldOnChange={handleFormDataInput}
             />
             <C_TextField
@@ -63,7 +63,6 @@ const PersonalInformationForm = ({}: Props) => {
               type="text"
               label="Mother Name"
               placeHolder="Name...."
-              style={{ paddingBottom: 2 }}
               fieldOnChange={handleFormDataInput}
             />
             <C_TextField
@@ -72,7 +71,6 @@ const PersonalInformationForm = ({}: Props) => {
               type="text"
               label="মাতার নাম"
               placeHolder="নাম..."
-              style={{ paddingBottom: 2 }}
               fieldOnChange={handleFormDataInput}
             />
             <C_Select
@@ -82,7 +80,6 @@ const PersonalInformationForm = ({}: Props) => {
               label="Religion"
               isRequired={true}
               defaultValue={"Islam"}
-              style={{ paddingBottom: 2 }}
               items={["Islam", "Hindu", "Budhist", "Chirstain"]}
               onChange={handleFormDataInput}
             />
@@ -93,7 +90,6 @@ const PersonalInformationForm = ({}: Props) => {
               label="Nationality"
               isRequired={true}
               defaultValue={"Bangladeshi"}
-              style={{ paddingBottom: 2 }}
               items={["Bangladeshi", "Indian", "Pakistani", "American"]}
               onChange={handleFormDataInput}
             />
@@ -104,7 +100,6 @@ const PersonalInformationForm = ({}: Props) => {
               label="Language"
               isRequired={true}
               defaultValue={"N/A"}
-              style={{ paddingBottom: 2 }}
               items={["N/A"]}
               onChange={handleFormDataInput}
             />
@@ -115,6 +110,7 @@ const PersonalInformationForm = ({}: Props) => {
               flexDirection: "column",
               width: "250px",
               marginLeft: 10,
+              justifyContent: "space-evenly",
               //   backgroundColor:colorscheme.brown500,
             }}
           >
@@ -123,7 +119,6 @@ const PersonalInformationForm = ({}: Props) => {
               name="nid_no"
               label="NID No."
               placeHolder="NID No."
-              style={{ paddingBottom: 2 }}
               validator={digitValidator(formData?.nid_no)}
               fieldOnChange={handleFormDataInput}
             />
@@ -132,7 +127,6 @@ const PersonalInformationForm = ({}: Props) => {
               name="birth_reg_no"
               label="Birth Reg. No."
               placeHolder="number"
-              style={{ paddingBottom: 2 }}
               validator={digitValidator(formData?.birth_reg_no)}
               fieldOnChange={handleFormDataInput}
             />
@@ -141,7 +135,6 @@ const PersonalInformationForm = ({}: Props) => {
               name="driving_license_no"
               label="Driving License No."
               placeHolder="License No"
-              style={{ paddingBottom: 2 }}
               validator={digitValidator(formData?.driving_license_no)}
               fieldOnChange={handleFormDataInput}
             />
@@ -150,7 +143,6 @@ const PersonalInformationForm = ({}: Props) => {
               name="passport_no"
               label="Passport No."
               placeHolder="Passport No."
-              style={{ paddingBottom: 2 }}
               validator={digitValidator(formData?.passport_no)}
               fieldOnChange={handleFormDataInput}
             />
@@ -159,7 +151,6 @@ const PersonalInformationForm = ({}: Props) => {
               name="tin_no"
               label="Tin No."
               placeHolder="Tin no."
-              style={{ paddingBottom: 2 }}
               validator={digitValidator(formData?.tin_no)}
               fieldOnChange={handleFormDataInput}
             />
@@ -170,7 +161,6 @@ const PersonalInformationForm = ({}: Props) => {
               label="Detection Symbol"
               isRequired={true}
               defaultValue={"N/A"}
-              style={{ paddingBottom: 2 }}
               items={["N/A"]}
               onChange={handleFormDataInput}
             />
@@ -181,7 +171,6 @@ const PersonalInformationForm = ({}: Props) => {
               label="Resident"
               isRequired={true}
               defaultValue={"Rental"}
-              style={{ paddingBottom: 2 }}
               items={["Rental", "Own House"]}
               onChange={handleFormDataInput}
             />
@@ -193,6 +182,7 @@ const PersonalInformationForm = ({}: Props) => {
               width: "250px",
               marginLeft: 10,
               //   backgroundColor:colorscheme.brown500,
+              justifyContent: "space-evenly",
             }}
           >
             <C_TextField
@@ -201,7 +191,6 @@ const PersonalInformationForm = ({}: Props) => {
               label="Present Address"
               placeHolder="Address ...."
               type="text"
-              style={{ paddingBottom: 2 }}
               fieldOnChange={handleFormDataInput}
             />
             <C_TextField
@@ -210,7 +199,6 @@ const PersonalInformationForm = ({}: Props) => {
               label="বর্তমান ঠিকানা"
               placeHolder="ঠিকানা ..."
               type="text"
-              style={{ paddingBottom: 2 }}
               fieldOnChange={handleFormDataInput}
             />
             <C_TextField
@@ -219,7 +207,6 @@ const PersonalInformationForm = ({}: Props) => {
               label="Permanent Address"
               placeHolder="Address ...."
               type="text"
-              style={{ paddingBottom: 2 }}
               fieldOnChange={handleFormDataInput}
             />
             <C_TextField
@@ -228,7 +215,6 @@ const PersonalInformationForm = ({}: Props) => {
               label="স্থায়ী ঠিকানা"
               placeHolder="ঠিকানা ..."
               type="text"
-              style={{ paddingBottom: 2 }}
               fieldOnChange={handleFormDataInput}
             />
             <C_Select
@@ -238,7 +224,6 @@ const PersonalInformationForm = ({}: Props) => {
               label="Permanent District"
               isRequired={true}
               defaultValue={"N/A"}
-              style={{ paddingBottom: 2 }}
               items={[
                 "permanent-1",
                 "permanent-2",
@@ -254,7 +239,6 @@ const PersonalInformationForm = ({}: Props) => {
               label="Present District"
               isRequired={true}
               defaultValue={"N/A"}
-              style={{ paddingBottom: 2 }}
               items={["N/A"]}
               onChange={handleFormDataInput}
             />
@@ -265,7 +249,6 @@ const PersonalInformationForm = ({}: Props) => {
               label="Present Zone"
               isRequired={true}
               defaultValue={"N/A"}
-              style={{ paddingBottom: 2 }}
               items={["N/A"]}
               onChange={handleFormDataInput}
             />
@@ -276,6 +259,7 @@ const PersonalInformationForm = ({}: Props) => {
               flexDirection: "column",
               width: "250px",
               marginLeft: 10,
+              justifyContent: "space-evenly",
               //   backgroundColor:colorscheme.brown500,
             }}
           >
@@ -284,7 +268,6 @@ const PersonalInformationForm = ({}: Props) => {
               name="height"
               label="Height"
               placeHolder="height"
-              style={{ paddingBottom: 2 }}
               fieldOnChange={handleFormDataInput}
             />
             <C_TextField
@@ -293,7 +276,6 @@ const PersonalInformationForm = ({}: Props) => {
               label="Weight"
               placeHolder="weight"
               suffixText="KG"
-              style={{ paddingBottom: 2 }}
               fieldOnChange={handleFormDataInput}
             />
             <C_Select
@@ -303,7 +285,6 @@ const PersonalInformationForm = ({}: Props) => {
               label="Origin"
               isRequired={true}
               defaultValue={"Bangladesh"}
-              style={{ paddingBottom: 2 }}
               items={["Bangladesh", "India", "Pakistan", "USA"]}
               onChange={handleFormDataInput}
             />
@@ -313,7 +294,6 @@ const PersonalInformationForm = ({}: Props) => {
               key="pace_graduate"
               label="Pace Graduate"
               defaultValue={"N/A"}
-              style={{ paddingBottom: 2 }}
               items={["N/A", "Yes", "No"]}
               onChange={handleFormDataInput}
             />
@@ -324,7 +304,6 @@ const PersonalInformationForm = ({}: Props) => {
               label="Blood Group"
               defaultValue={"N/A"}
               isRequired={true}
-              style={{ paddingBottom: 2 }}
               items={["N/A"]}
               onChange={handleFormDataInput}
             />
@@ -334,7 +313,6 @@ const PersonalInformationForm = ({}: Props) => {
               key="napkin_user"
               label="Napkin User"
               defaultValue={""}
-              style={{ paddingBottom: 2 }}
               items={["N/A", "Fabric", "Napkin", "Stopped", "Method"]}
               onChange={handleFormDataInput}
             />
@@ -344,7 +322,6 @@ const PersonalInformationForm = ({}: Props) => {
               key="covid19_vaccinated"
               label="Covid19 Vaccinated"
               defaultValue={""}
-              style={{ paddingBottom: 2 }}
               items={[
                 "YES",
                 "NO",

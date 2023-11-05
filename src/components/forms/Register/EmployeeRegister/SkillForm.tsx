@@ -114,7 +114,7 @@ const SkillForm = ({}: Props) => {
           }}
           rows={skillsRow}
           columns={skillsColumn}
-          tableTitle={"Employee Skills"}
+          label={"Employee Skills"}
         />
       </div>
     </>

@@ -8,8 +8,36 @@ import useColorScheme from "../../../../hooks/useColorScheme";
 import { digitValidator } from "../../../../utils/validator";
 
 interface Props {}
+interface FormDataProps {
+  gross_salary?: any;
+  currency?: any;
+  basic?: any;
+  house_rent?: any;
+  attendance_bonus?: any;
+  ot_entitled?: any;
+  income_tax?: any;
+  tax_rebate?: any;
+  pf_company?: any;
+  pf_own?: any;
+  food_allowance?: any;
+  medical_allowance?: any;
+  transport_allowance?: any;
+  tiffin_allowance?: any;
+  dinner_allowance?: any;
+  other_allowance?: any;
+  laundry_allowance?: any;
+  sba_allowance?: any;
+  dearness_allowance?: any;
+  staff_od_allowance?: any;
+  holiday_allowance?: any;
+  night_shift_allowance?: any;
+  night_allowance?: any;
+  mobile_allowance?: any;
+  attendance_bonus_status?: boolean;
+  ot_entitled_status?: boolean;
+}
 const SalaryAllowancesForm = ({}: Props) => {
-  const [formData, setFormData] = useState<{}>();
+  const [formData, setFormData] = useState<FormDataProps>();
   const [attendanceBonusStatus, setAttendanceBonusStatus] =
     useState<boolean>(false);
   const [otEntitledStatus, setOtEntitledStatus] = useState<boolean>(false);
@@ -43,7 +71,7 @@ const SalaryAllowancesForm = ({}: Props) => {
           key="salary_scheme"
           label="Salary Scheme"
           defaultValue={"GMT Industry Rules"}
-          style={{ paddingBottom: 2, width: "200px",marginLeft:"2vw" }}
+          style={{ marginLeft: 2, width: "200px" }}
           items={["GMT Industry Rules"]}
           onChange={handleFormDataInput}
         />
@@ -52,6 +80,7 @@ const SalaryAllowancesForm = ({}: Props) => {
           style={{
             display: "flex",
             justifyContent: "center",
+            height: "55vh",
           }}
         >
           <div
@@ -59,6 +88,7 @@ const SalaryAllowancesForm = ({}: Props) => {
               display: "flex",
               flexDirection: "column",
               width: "250px",
+              justifyContent: "space-evenly",
               //   backgroundColor:colorscheme.brown500,
             }}
           >
@@ -67,7 +97,6 @@ const SalaryAllowancesForm = ({}: Props) => {
               name="gross_salary"
               label="Gross Salary"
               defaultValue={0}
-              style={{ paddingBottom: 2 }}
               validator={digitValidator(formData?.gross_salary)}
               fieldOnChange={handleFormDataInput}
             />
@@ -76,7 +105,6 @@ const SalaryAllowancesForm = ({}: Props) => {
               name="currency"
               label="Currency"
               value={0}
-              style={{ paddingBottom: 2 }}
               validator={digitValidator(formData?.currency)}
               fieldOnChange={handleFormDataInput}
             />
@@ -85,7 +113,6 @@ const SalaryAllowancesForm = ({}: Props) => {
               name="basic"
               label="Basic"
               value={0}
-              style={{ paddingBottom: 2 }}
               validator={digitValidator(formData?.basic)}
               fieldOnChange={handleFormDataInput}
             />
@@ -95,7 +122,6 @@ const SalaryAllowancesForm = ({}: Props) => {
               type="tel"
               label="House Rent"
               value={0}
-              style={{ paddingBottom: 2 }}
               validator={digitValidator(formData?.house_rent)}
               fieldOnChange={handleFormDataInput}
             />
@@ -122,7 +148,7 @@ const SalaryAllowancesForm = ({}: Props) => {
                 label=""
                 defaultValue={0}
                 validator={digitValidator(formData?.attendance_bonus)}
-                style={{ paddingBottom: 2, width: "130px" }}
+                style={{ width: "130px" }}
                 fieldOnChange={handleFormDataInput}
               />
             </div>
@@ -156,7 +182,7 @@ const SalaryAllowancesForm = ({}: Props) => {
                   label=""
                   defaultValue={0}
                   validator={digitValidator(formData?.ot_entitled)}
-                  style={{ paddingBottom: 2, width: "110px" }}
+                  style={{ width: "110px" }}
                   fieldOnChange={handleFormDataInput}
                 />
               </div>
@@ -167,6 +193,7 @@ const SalaryAllowancesForm = ({}: Props) => {
               display: "flex",
               flexDirection: "column",
               width: "250px",
+              justifyContent: "space-evenly",
               marginLeft: 10,
               //   backgroundColor:colorscheme.brown500,
             }}
@@ -176,7 +203,6 @@ const SalaryAllowancesForm = ({}: Props) => {
               name="income_tax"
               label="Income Tax"
               defaultValue={0}
-              style={{ paddingBottom: 2 }}
               validator={digitValidator(formData?.income_tax)}
               fieldOnChange={handleFormDataInput}
             />
@@ -185,7 +211,6 @@ const SalaryAllowancesForm = ({}: Props) => {
               name="tax_rebate"
               label="Tax Rebate"
               defaultValue={0}
-              style={{ paddingBottom: 2 }}
               validator={digitValidator(formData?.tax_rebate)}
               fieldOnChange={handleFormDataInput}
             />
@@ -194,7 +219,6 @@ const SalaryAllowancesForm = ({}: Props) => {
               name="pf_company"
               label="PF Company"
               defaultValue={0}
-              style={{ paddingBottom: 2 }}
               validator={digitValidator(formData?.pf_company)}
               fieldOnChange={handleFormDataInput}
             />
@@ -203,7 +227,6 @@ const SalaryAllowancesForm = ({}: Props) => {
               name="pf_own"
               label="PF Own"
               defaultValue={0}
-              style={{ paddingBottom: 2 }}
               validator={digitValidator(formData?.pf_own)}
               fieldOnChange={handleFormDataInput}
             />
@@ -212,7 +235,6 @@ const SalaryAllowancesForm = ({}: Props) => {
               name="food_allowance"
               label="Food Allowance"
               value={0}
-              style={{ paddingBottom: 2 }}
               validator={digitValidator(formData?.food_allowance)}
               fieldOnChange={handleFormDataInput}
             />
@@ -221,7 +243,6 @@ const SalaryAllowancesForm = ({}: Props) => {
               name="medical_allowance"
               label="Medical Allowance"
               value={0}
-              style={{ paddingBottom: 2 }}
               validator={digitValidator(formData?.medical_allowance)}
               fieldOnChange={handleFormDataInput}
             />
@@ -231,6 +252,7 @@ const SalaryAllowancesForm = ({}: Props) => {
               display: "flex",
               flexDirection: "column",
               width: "250px",
+              justifyContent: "space-evenly",
               marginLeft: 10,
               //   backgroundColor:colorscheme.brown500,
             }}
@@ -240,7 +262,6 @@ const SalaryAllowancesForm = ({}: Props) => {
               name="transport_allowance"
               label="Transport Allowance"
               value={0}
-              style={{ paddingBottom: 2 }}
               validator={digitValidator(formData?.transport_allowance)}
               fieldOnChange={handleFormDataInput}
             />
@@ -249,7 +270,6 @@ const SalaryAllowancesForm = ({}: Props) => {
               name="tiffin_allowance"
               label="Tiffin Allowance"
               value={0}
-              style={{ paddingBottom: 2 }}
               validator={digitValidator(formData?.tiffin_allowance)}
               fieldOnChange={handleFormDataInput}
             />
@@ -258,7 +278,6 @@ const SalaryAllowancesForm = ({}: Props) => {
               name="dinner_allowance"
               label="Dinner Allowance"
               defaultValue={0}
-              style={{ paddingBottom: 2 }}
               validator={digitValidator(formData?.dinner_allowance)}
               fieldOnChange={handleFormDataInput}
             />
@@ -267,7 +286,6 @@ const SalaryAllowancesForm = ({}: Props) => {
               name="other_allowance"
               label="Other Allowance"
               defaultValue={0}
-              style={{ paddingBottom: 2 }}
               validator={digitValidator(formData?.other_allowance)}
               fieldOnChange={handleFormDataInput}
             />
@@ -276,7 +294,6 @@ const SalaryAllowancesForm = ({}: Props) => {
               name="laundry_allowance"
               label="Laundry Allowance"
               defaultValue={0}
-              style={{ paddingBottom: 2 }}
               validator={digitValidator(formData?.laundry_allowance)}
               fieldOnChange={handleFormDataInput}
             />
@@ -285,7 +302,6 @@ const SalaryAllowancesForm = ({}: Props) => {
               name="mobile_allowance"
               label="Mobile Allowance"
               defaultValue={0}
-              style={{ paddingBottom: 2 }}
               validator={digitValidator(formData?.mobile_allowance)}
               fieldOnChange={handleFormDataInput}
             />
@@ -295,6 +311,7 @@ const SalaryAllowancesForm = ({}: Props) => {
               display: "flex",
               flexDirection: "column",
               width: "250px",
+              justifyContent: "space-evenly",
               //   backgroundColor:colorscheme.brown500,
               marginLeft: 10,
             }}
@@ -304,7 +321,6 @@ const SalaryAllowancesForm = ({}: Props) => {
               name="night_allowance"
               label="Night Allowance"
               value={0}
-              style={{ paddingBottom: 2 }}
               validator={digitValidator(formData?.night_allowance)}
               fieldOnChange={handleFormDataInput}
             />
@@ -313,7 +329,6 @@ const SalaryAllowancesForm = ({}: Props) => {
               name="night_shift_allowance"
               label="Night Shift Allowance"
               defaultValue={0}
-              style={{ paddingBottom: 2 }}
               validator={digitValidator(formData?.night_shift_allowance)}
               fieldOnChange={handleFormDataInput}
             />
@@ -322,7 +337,6 @@ const SalaryAllowancesForm = ({}: Props) => {
               name="holiday_allowance"
               label="Holiday Allowance"
               value={0}
-              style={{ paddingBottom: 2 }}
               validator={digitValidator(formData?.holiday_allowance)}
               fieldOnChange={handleFormDataInput}
             />
@@ -331,7 +345,6 @@ const SalaryAllowancesForm = ({}: Props) => {
               name="staff_od_allowance"
               label="Staff OD Allowance"
               defaultValue={0}
-              style={{ paddingBottom: 2 }}
               validator={digitValidator(formData?.staff_od_allowance)}
               fieldOnChange={handleFormDataInput}
             />
@@ -340,7 +353,6 @@ const SalaryAllowancesForm = ({}: Props) => {
               name="dearness_allowance"
               label="Dearness Allowance"
               defaultValue={0}
-              style={{ paddingBottom: 2 }}
               validator={digitValidator(formData?.dearness_allowance)}
               fieldOnChange={handleFormDataInput}
             />
@@ -349,7 +361,6 @@ const SalaryAllowancesForm = ({}: Props) => {
               name="sba_allowance"
               label="SBA Allowance"
               defaultValue={0}
-              style={{ paddingBottom: 2 }}
               validator={digitValidator(formData?.sba_allowance)}
               fieldOnChange={handleFormDataInput}
             />

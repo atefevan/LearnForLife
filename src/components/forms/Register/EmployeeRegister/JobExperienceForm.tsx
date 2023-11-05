@@ -162,7 +162,7 @@ const JobExperienceForm = ({}: Props) => {
                 onChange={(event) => {
                   setFormData({
                     ...formData,
-                    from_date: event["$d"].toString(),
+                    from_date: event["$d"].toDateString(),
                   });
                   setFromDate(event["$d"]);
                 }}
@@ -174,7 +174,7 @@ const JobExperienceForm = ({}: Props) => {
                 value={toDate}
                 style={{ margin: 0.5 }}
                 onChange={(event) => {
-                  setFormData({ ...formData, to_date: event["$d"].toString() });
+                  setFormData({ ...formData, to_date: event["$d"].toDateString() });
                   setToDate(event["$d"]);
                 }}
               />
@@ -227,7 +227,7 @@ const JobExperienceForm = ({}: Props) => {
               }}
               rows={jobExperienceRow}
               columns={jobExperienceColumn}
-              tableTitle={"Job Experiences"}
+              label={"Job Experiences"}
             />
       </div>
     </>

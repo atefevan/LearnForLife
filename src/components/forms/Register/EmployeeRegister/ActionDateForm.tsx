@@ -44,6 +44,8 @@ const ActionDateForm = ({}: Props) => {
           <div
             style={{
               display: "flex",
+              width:"65vw",
+              justifyContent:"space-evenly"
               //   backgroundColor:colorscheme.brown500,
             }}
           >
@@ -52,7 +54,6 @@ const ActionDateForm = ({}: Props) => {
               label="1st Letter Issue"
               dateFormat="MMM DD, YYYY"
               value={firstLetterIssueDate}
-              style={{ margin: 0.5 }}
               onChange={(event) => {
                 setFormData({
                   ...formData,
@@ -66,7 +67,6 @@ const ActionDateForm = ({}: Props) => {
               label="2nd Letter Issue"
               dateFormat="MMM DD, YYYY"
               value={secondLetterIssueDate}
-              style={{ margin: 0.5 }}
               onChange={(event) => {
                 setFormData({
                   ...formData,
@@ -80,7 +80,6 @@ const ActionDateForm = ({}: Props) => {
               label="3rd Letter Issue"
               dateFormat="MMM DD, YYYY"
               value={thirdLetterIssueDate}
-              style={{ margin: 0.5 }}
               onChange={(event) => {
                 setFormData({
                   ...formData,
@@ -94,7 +93,6 @@ const ActionDateForm = ({}: Props) => {
               label="Increment Issue"
               dateFormat="MMM DD, YYYY"
               value={incrementIssueDate}
-              style={{ margin: 0.5 }}
               onChange={(event) => {
                 setFormData({
                   ...formData,

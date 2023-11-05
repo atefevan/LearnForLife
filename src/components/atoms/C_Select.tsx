@@ -71,6 +71,7 @@ const C_Select = ({
             "&.Mui-focused": {
               color: colorscheme.text,
             },
+            ...style,
           }}
         >
           {label}

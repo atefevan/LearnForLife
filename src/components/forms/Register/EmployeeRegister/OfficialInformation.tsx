@@ -35,12 +35,13 @@ const OfficialInformationForm = ({}: Props) => {
         <C_Typography text={"Official Information"} fontSize={fontSizes.rg} />
       </div>
       {/* Form Body */}
-      <div style={{ display: "flex", justifyContent: "center" }}>
+      <div style={{ display: "flex", justifyContent: "center",height:"60vh" }}>
         <div
           style={{
             display: "flex",
             flexDirection: "column",
             width: "310px",
+            justifyContent:"space-evenly",
             //   backgroundColor:colorscheme.brown500,
           }}
         >
@@ -51,7 +52,6 @@ const OfficialInformationForm = ({}: Props) => {
             isRequired={true}
             label="Branch / Unit"
             defaultValue={""}
-            style={{ paddingBottom: 2 }}
             items={[]}
             onChange={handleFormDataInput}
           />
@@ -62,7 +62,6 @@ const OfficialInformationForm = ({}: Props) => {
             label="Department"
             isRequired={true}
             defaultValue={"N/A"}
-            style={{ paddingBottom: 2 }}
             items={["N/A"]}
             onChange={handleFormDataInput}
           />
@@ -73,7 +72,6 @@ const OfficialInformationForm = ({}: Props) => {
             label="Section"
             isRequired={true}
             defaultValue={"N/A"}
-            style={{ paddingBottom: 2 }}
             items={["N/A"]}
             onChange={handleFormDataInput}
           />
@@ -84,7 +82,6 @@ const OfficialInformationForm = ({}: Props) => {
             label="Designation"
             isRequired={true}
             defaultValue={"N/A"}
-            style={{ paddingBottom: 2 }}
             items={["N/A"]}
             onChange={handleFormDataInput}
           />
@@ -95,7 +92,6 @@ const OfficialInformationForm = ({}: Props) => {
             label="Desig. Group"
             isRequired={true}
             defaultValue={"N/A"}
-            style={{ paddingBottom: 2 }}
             items={["N/A"]}
             onChange={handleFormDataInput}
           />
@@ -106,7 +102,6 @@ const OfficialInformationForm = ({}: Props) => {
             label="Job Title"
             isRequired={true}
             defaultValue={"N/A"}
-            style={{ paddingBottom: 2 }}
             items={["N/A"]}
             onChange={handleFormDataInput}
           />
@@ -117,7 +112,6 @@ const OfficialInformationForm = ({}: Props) => {
             label="Grade"
             isRequired={true}
             defaultValue={"N/A"}
-            style={{ paddingBottom: 2 }}
             items={["N/A"]}
             onChange={handleFormDataInput}
           />
@@ -128,6 +122,7 @@ const OfficialInformationForm = ({}: Props) => {
             flexDirection: "column",
             width: "310px",
             marginLeft: 10,
+            justifyContent:"space-evenly",
             //   backgroundColor:colorscheme.brown500,
           }}
         >
@@ -138,7 +133,6 @@ const OfficialInformationForm = ({}: Props) => {
             label="Floor"
             isRequired={true}
             defaultValue={"N/A"}
-            style={{ paddingBottom: 2 }}
             items={["N/A"]}
             onChange={handleFormDataInput}
           />
@@ -149,7 +143,6 @@ const OfficialInformationForm = ({}: Props) => {
             label="Line"
             isRequired={true}
             defaultValue={"N/A"}
-            style={{ paddingBottom: 2 }}
             items={["N/A"]}
             onChange={handleFormDataInput}
           />
@@ -160,7 +153,6 @@ const OfficialInformationForm = ({}: Props) => {
             label="Block"
             isRequired={true}
             defaultValue={"N/A"}
-            style={{ paddingBottom: 2 }}
             items={["N/A"]}
             onChange={handleFormDataInput}
           />
@@ -171,7 +163,6 @@ const OfficialInformationForm = ({}: Props) => {
             label="Expertness"
             isRequired={true}
             defaultValue={"N/A"}
-            style={{ paddingBottom: 2 }}
             items={["N/A"]}
             onChange={handleFormDataInput}
           />
@@ -182,7 +173,6 @@ const OfficialInformationForm = ({}: Props) => {
             label="Staff Category"
             isRequired={true}
             defaultValue={""}
-            style={{ paddingBottom: 2 }}
             items={["N/A"]}
             onChange={handleFormDataInput}
           />
@@ -193,7 +183,6 @@ const OfficialInformationForm = ({}: Props) => {
             label="Agreement"
             isRequired={true}
             defaultValue={"N/A"}
-            style={{ paddingBottom: 2 }}
             items={[
               "N/A",
               "Contractual",
@@ -209,7 +198,6 @@ const OfficialInformationForm = ({}: Props) => {
             key="legal_status"
             label="Legal Status"
             defaultValue={"N/A"}
-            style={{ paddingBottom: 2 }}
             items={["N/A", "Long Absent", "Resign", "Termination"]}
             onChange={handleFormDataInput}
           />
@@ -220,6 +208,7 @@ const OfficialInformationForm = ({}: Props) => {
             flexDirection: "column",
             width: "310px",
             marginLeft: 10,
+            justifyContent:"space-evenly",
             //   backgroundColor:colorscheme.brown500,
           }}
         >
@@ -228,7 +217,7 @@ const OfficialInformationForm = ({}: Props) => {
             label="Resign Issue Date"
             dateFormat="MMM DD,YYYY"
             value={resignIssueDate}
-            style={{ paddingBottom: 2, width: "310px" }}
+            style={{width: "310px" }}
             onChange={(event) => {
               setFormData({
                 ...formData,
@@ -244,7 +233,6 @@ const OfficialInformationForm = ({}: Props) => {
             isRequired={true}
             label="Membership Type"
             defaultValue={"N/A"}
-            style={{ paddingBottom: 2 }}
             items={["N/A"]}
             onChange={handleFormDataInput}
           />
@@ -255,7 +243,6 @@ const OfficialInformationForm = ({}: Props) => {
             isRequired={true}
             label="Roster Type"
             defaultValue={"N/A"}
-            style={{ paddingBottom: 2 }}
             items={[
               "N/A",
               "Group Roster",
@@ -272,7 +259,6 @@ const OfficialInformationForm = ({}: Props) => {
             label="Shift Plan"
             isRequired={true}
             defaultValue={"General Shift"}
-            style={{ paddingBottom: 2 }}
             items={["General Shift"]}
             onChange={handleFormDataInput}
           />
@@ -283,7 +269,6 @@ const OfficialInformationForm = ({}: Props) => {
             label="Roster Group"
             isRequired={true}
             defaultValue={"N/A"}
-            style={{ paddingBottom: 2 }}
             items={[
               "N/A",
               "A",
@@ -320,7 +305,6 @@ const OfficialInformationForm = ({}: Props) => {
             label="1st Weekend"
             isRequired={true}
             defaultValue={"Friday"}
-            style={{ paddingBottom: 2 }}
             items={[
               "N/A",
               "Saturday",
@@ -340,7 +324,6 @@ const OfficialInformationForm = ({}: Props) => {
             label="2nd Weekend"
             isRequired={true}
             defaultValue={"N/A"}
-            style={{ paddingBottom: 2 }}
             items={[
               "N/A",
               "Saturday",
@@ -360,6 +343,7 @@ const OfficialInformationForm = ({}: Props) => {
             flexDirection: "column",
             width: "310px",
             marginLeft: 10,
+            justifyContent:"space-evenly",
             //   backgroundColor:colorscheme.brown500,
           }}
         >
@@ -368,7 +352,7 @@ const OfficialInformationForm = ({}: Props) => {
             label="Confirm Date"
             dateFormat="MMM DD,YYYY"
             value={confirmDate}
-            style={{ paddingBottom: 2, width: "310px" }}
+            style={{  width: "310px" }}
             onChange={(event) => {
               setFormData({
                 ...formData,
@@ -382,7 +366,7 @@ const OfficialInformationForm = ({}: Props) => {
             label="Sepration Date"
             dateFormat="MMM DD,YYYY"
             value={seprationDate}
-            style={{ paddingBottom: 2, width: "310px" }}
+            style={{  width: "310px" }}
             onChange={(event) => {
               setFormData({
                 ...formData,
@@ -396,7 +380,7 @@ const OfficialInformationForm = ({}: Props) => {
             label="Appraisal Date"
             dateFormat="MMM DD,YYYY"
             value={appraisalDate}
-            style={{ paddingBottom: 2, width: "310px" }}
+            style={{  width: "310px" }}
             onChange={(event) => {
               setFormData({
                 ...formData,
@@ -410,7 +394,7 @@ const OfficialInformationForm = ({}: Props) => {
             label="Transfer Date"
             dateFormat="MMM DD,YYYY"
             value={transferDate}
-            style={{ paddingBottom: 2, width: "310px" }}
+            style={{  width: "310px" }}
             onChange={(event) => {
               setFormData({
                 ...formData,
@@ -425,7 +409,6 @@ const OfficialInformationForm = ({}: Props) => {
             type="text"
             label="Transfer From"
             placeHolder=""
-            style={{ paddingBottom: 2 }}
             fieldOnChange={handleFormDataInput}
           />
           <C_DatePicker
@@ -433,7 +416,7 @@ const OfficialInformationForm = ({}: Props) => {
             label="PF Effective Date"
             dateFormat="MMM DD,YYYY"
             value={pfEffectiveDate}
-            style={{ paddingBottom: 2, width: "310px" }}
+            style={{ width: "310px" }}
             onChange={(event) => {
               setFormData({
                 ...formData,
@@ -448,7 +431,6 @@ const OfficialInformationForm = ({}: Props) => {
             key="designation_2"
             label="Designation 2"
             defaultValue={"N/A"}
-            style={{ paddingBottom: 2 }}
             items={["N/A"]}
             onChange={handleFormDataInput}
           />
