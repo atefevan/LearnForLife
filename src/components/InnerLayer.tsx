@@ -76,7 +76,7 @@ const InnerLayer = ({ children }: Props) => {
         bgcolor={colorscheme.inner_layer}
         overflow={"fixed"}
       >
-        <Tooltip title="Update Available">
+        <Tooltip title="Update Available" arrow>
           <div
             style={{
               position: "absolute",
